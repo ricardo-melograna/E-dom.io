@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-dom.io - Free HTML Hosting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        header h1 {
+            font-size: 4rem;
+            background: linear-gradient(135deg, #fff, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(168,85,247,0.3);
+            border-radius: 50px;
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            margin-top: 15px;
+            border: 1px solid rgba(168,85,247,0.5);
+        }
+
+        .about-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 50px 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .about-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #c084fc;
+        }
+
+        .about-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .highlight {
+            color: #c084fc;
+            font-weight: bold;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .feature-item {
+            background: rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-8px);
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(168,85,247,0.5);
+        }
+
+        .feature-emoji {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #e9d5ff;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        .how-it-works {
+            background: rgba(0,0,0,0.3);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 50px 0;
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #c084fc;
+        }
+
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 15px;
+        }
+
+        .step h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .code-block {
+            background: #1e1e2e;
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            border-left: 4px solid #a855f7;
+        }
+
+        .form-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 50px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #c084fc;
+        }
+
+        .form-container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        iframe {
+            width: 100%;
+            height: 800px;
+            border: none;
+            border-radius: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 40px;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-section {
+                padding: 25px;
+            }
+            
+            .features-grid {
+                gap: 20px;
+            }
+            
+            .step {
+                min-width: 150px;
+            }
+            
+            .form-section {
+                padding: 25px;
+            }
+            
+            iframe {
+                height: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>E-dom.io</h1>
+            <p class="tagline">Host your HTML for free with a custom domain!</p>
+            <div class="badge">🚀 100% FREE • NO FEES • NO ADS</div>
+        </header>
+
+        <!-- ✅ What is E-dom.io -->
+        <section class="about-section">
+            <h2>✅ What is E-dom.io</h2>
+            <p><span class="highlight">E-dom.io</span> is the first platform that lets you <span class="highlight">host your HTML files</span> (we call them <span class="highlight">E-HTML</span>) through a simple form, with <span class="highlight">custom domains</span> and all of this <span class="highlight">without paying a single cent</span>! The revolution in free hosting.</p>
+        </section>
+
+        <!-- ✅ 4 features -->
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-emoji">🆓</div>
+                <h3>Free</h3>
+                <p>Host as many E-HTMLs as you want for FREE. No hidden fees, no premium plans. Total freedom!</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-emoji">🔓</div>
+                <h3>No Login</h3>
+                <p>No need to create an account or provide an email. Send your HTML instantly and get the link right away.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-emoji">🛡️</div>
+                <h3>Secure</h3>
+                <p>Your E-HTML will be tested before being shared for anti-malicious purposes. We keep your E-HTMLs on a secure server.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-emoji">🌍</div>
+                <h3>For Everyone</h3>
+                <p>From developers to beginners. Just paste your HTML code and you're done! Your site goes online for free.</p>
+            </div>
+        </div>
+
+        <!-- ✅ How it works -->
+        <section class="how-it-works">
+            <h2>🚀 How it works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Write your HTML</h3>
+                    <p>Create your page, landing page or entire site with HTML/CSS/JS.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Access the form</h3>
+                    <p>Fill out the Google Forms below with your details.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Submit your E-HTML</h3>
+                    <p>Paste your HTML code in the form and choose your custom domain.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Share it!</h3>
+                    <p>Your site will be online at https://ricardo-melograna.github.io/E-dom.io/your-domain or https://ricardo-melograna.github.io/E-dom.io/your-domain.html for the whole world!</p>
+                </div>
+            </div>
+
+            <div class="code-block">
+                📝 <strong>Example E-HTML you can host:</strong><br>
+                &lt;html&gt;&lt;body&gt;&lt;h1&gt;My first website on E-dom.io!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+            </div>
+        </section>
+
+        <!-- ✅ Submit form (Google Forms) -->
+        <section class="form-section">
+            <h2>📤 Submit my E-HTML now</h2>
+            <div class="form-container">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjykwtQYNJ-U1IOu1VS1WSrytom-VT_q6QNGg7GKO6kUuHCg/viewform"></iframe>
+                <p style="text-align: center; margin-top: 15px; opacity: 0.8;">Fill out the form above to host your HTML with a custom, free domain!</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>🔥 E-dom.io • Free E-HTML hosting • Custom domains • No fees • No hassle</p>
+            <p style="margin-top: 10px;">© 2025 E-dom.io - Turning HTML into live websites in seconds!</p>
+        </footer>
+    </div>
+</body>
+</html>
