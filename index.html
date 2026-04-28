@@ -3,78 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-dom.io</title>
+    <title>E-dom.io - Hospede seu HTML grátis</title>
     <style>
-        body {
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            color: #333;
+            box-sizing: border-box;
         }
+
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
         header {
-            background: #fff;
-            padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            padding: 60px 20px 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-        .feature-card {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin: 20px;
+
+        header h1 {
+            font-size: 4rem;
+            background: linear-gradient(135deg, #fff, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(168,85,247,0.3);
+            border-radius: 50px;
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            margin-top: 15px;
+            border: 1px solid rgba(168,85,247,0.5);
+        }
+
+        /* Seção O que é */
+        .about-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 50px 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .about-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #c084fc;
+        }
+
+        .about-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .highlight {
+            color: #c084fc;
+            font-weight: bold;
+        }
+
+        /* Features grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .feature-item {
+            background: rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-8px);
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(168,85,247,0.5);
+        }
+
+        .feature-emoji {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #e9d5ff;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        /* Como funciona */
+        .how-it-works {
+            background: rgba(0,0,0,0.3);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 50px 0;
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #c084fc;
+        }
+
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
             padding: 20px;
-            transition: transform 0.3s;
         }
-        .feature-card:hover {
-            transform: scale(1.05);
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 15px;
         }
-        .instructions {
-            padding: 20px;
+
+        .step h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
         }
+
+        .step p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .code-block {
+            background: #1e1e2e;
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            border-left: 4px solid #a855f7;
+        }
+
+        /* Formulário do Google Forms */
+        .form-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 50px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #c084fc;
+        }
+
+        .form-container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
         iframe {
             width: 100%;
             height: 800px;
             border: none;
+            border-radius: 20px;
         }
-        @media (max-width: 600px) {
-            .feature-card {
-                margin: 10px;
-                padding: 15px;
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 40px;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-section {
+                padding: 25px;
+            }
+            
+            .features-grid {
+                gap: 20px;
+            }
+            
+            .step {
+                min-width: 150px;
+            }
+            
+            .form-section {
+                padding: 25px;
+            }
+            
+            iframe {
+                height: 600px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Bem-vindo ao E-dom.io</h1>
-    </header>
-    <section class="features">
-        <div class="feature-card">
-            <h2>Recursos</h2>
-            <p>Explore nossos serviços e recursos incríveis que facilitam a sua vida!</p>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header>
+            <h1>E-dom.io</h1>
+            <p class="tagline">Hospede seu HTML grátis com domínio personalizado!</p>
+            <div class="badge">🚀 100% GRÁTIS • SEM TAXAS • SEM ANÚNCIOS</div>
+        </header>
+
+        <!-- ✅ O que é E-dom.io -->
+        <section class="about-section">
+            <h2>✅ O que é E-dom.io</h2>
+            <p><span class="highlight">E-dom.io</span> é a primeira plataforma que permite <span class="highlight">hospedar seus arquivos HTML</span> (chamamos de <span class="highlight">E-HTML</span>) através de um simples formulário, com <span class="highlight">domínios personalizados</span> e tudo isso <span class="highlight">sem pagar 1 centavo</span>! É a revolução da hospedagem gratuita.</p>
+        </section>
+
+        <!-- ✅ 4 features -->
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-emoji">🆓</div>
+                <h3>Gratuito</h3>
+                <p>Hospede quantos E-HTMLs quiser sem pagar NADA. Sem taxas escondidas, sem planos premium. Liberdade total!</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-emoji">🔓</div>
+                <h3>Sem Login</h3>
+                <p>Não precisa criar conta, nem fornecer e-mail. Envie seu HTML instantaneamente e receba o link na hora.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-emoji">🛡️</div>
+                <h3>Seguro</h3>
+                <p>Seus arquivos hospedados com segurança e proteção. Mantemos seus dados em ambiente seguro.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-emoji">🌍</div>
+                <h3>Para Todos</h3>
+                <p>Desde desenvolvedores até iniciantes. Basta colar seu código HTML e pronto! Seu site online em segundos.</p>
+            </div>
         </div>
-        <div class="feature-card">
-            <h2>Planos e Preços</h2>
-            <p>Descubra nossos planos acessíveis e encontre o que melhor se adapta a você.</p>
-        </div>
-        <div class="feature-card">
-            <h2>Apoio ao Cliente</h2>
-            <p>Nosso suporte está sempre disponível para ajudá-lo quando você precisar.</p>
-        </div>
-    </section>
-    <section class="instructions">
-        <h2>Instruções</h2>
-        <p>Siga as etapas abaixo para começar:</p>
-        <ol>
-            <li>Faça login em sua conta.</li>
-            <li>Explore os recursos disponíveis.</li>
-            <li>Entre em contato com o suporte caso tenha dúvidas.</li>
-        </ol>
-    </section>
-    <section class="google-form">
-        <h2>Formulário de Inscrição</h2>
-        <iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform"></iframe>
-    </section>
+
+        <!-- ✅ Como funciona -->
+        <section class="how-it-works">
+            <h2>🚀 Como funciona</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Escreva seu HTML</h3>
+                    <p>Crie sua página, landing page ou site inteiro com HTML/CSS/JS.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Acesse o formulário</h3>
+                    <p>Preencha o formulário do Google Forms abaixo com seus dados.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Envie seu E-HTML</h3>
+                    <p>Cole seu código HTML no formulário e escolha seu domínio personalizado.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Compartilhe!</h3>
+                    <p>Seu site estará online em seunome.e-dom.io para o mundo todo!</p>
+                </div>
+            </div>
+
+            <div class="code-block">
+                📝 <strong>Exemplo de E-HTML que você pode hospedar:</strong><br>
+                &lt;html&gt;&lt;body&gt;&lt;h1&gt;Meu primeiro site no E-dom.io!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+            </div>
+        </section>
+
+        <!-- ✅ Formulário pra enviar (Google Forms) -->
+        <section class="form-section">
+            <h2>📤 Enviar meu E-HTML agora</h2>
+            <div class="form-container">
+                <iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform"></iframe>
+                <p style="text-align: center; margin-top: 15px; opacity: 0.8;">Preencha o formulário acima para hospedar seu HTML com domínio personalizado e gratuito!</p>
+            </div>
+        </section>
+
+        <!-- Rodapé -->
+        <footer>
+            <p>🔥 E-dom.io • Hospedagem gratuita de E-HTML • Domínios personalizados • Sem taxas • Sem complicação</p>
+            <p style="margin-top: 10px;">© 2025 E-dom.io - Transformando HTML em sites online em segundos!</p>
+        </footer>
+    </div>
 </body>
 </html>
