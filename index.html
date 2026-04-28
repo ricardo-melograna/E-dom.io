@@ -1,12 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>E-dom.io</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .feature-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: scale(1.05);
+        }
+        .instructions {
+            padding: 20px;
+        }
+        iframe {
+            width: 100%;
+            height: 800px;
+            border: none;
+        }
+        @media (max-width: 600px) {
+            .feature-card {
+                margin: 10px;
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to E-dom</h1>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfhuh2oI4Xic3-GuanO8BpTjXLKSrGNBjRpuVxwWVBYjLu64w/viewform?usp=dialog" width="640" height="480" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <header>
+        <h1>Bem-vindo ao E-dom.io</h1>
+    </header>
+    <section class="features">
+        <div class="feature-card">
+            <h2>Recursos</h2>
+            <p>Explore nossos serviços e recursos incríveis que facilitam a sua vida!</p>
+        </div>
+        <div class="feature-card">
+            <h2>Planos e Preços</h2>
+            <p>Descubra nossos planos acessíveis e encontre o que melhor se adapta a você.</p>
+        </div>
+        <div class="feature-card">
+            <h2>Apoio ao Cliente</h2>
+            <p>Nosso suporte está sempre disponível para ajudá-lo quando você precisar.</p>
+        </div>
+    </section>
+    <section class="instructions">
+        <h2>Instruções</h2>
+        <p>Siga as etapas abaixo para começar:</p>
+        <ol>
+            <li>Faça login em sua conta.</li>
+            <li>Explore os recursos disponíveis.</li>
+            <li>Entre em contato com o suporte caso tenha dúvidas.</li>
+        </ol>
+    </section>
+    <section class="google-form">
+        <h2>Formulário de Inscrição</h2>
+        <iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform"></iframe>
+    </section>
 </body>
 </html>
